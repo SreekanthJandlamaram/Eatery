@@ -1,0 +1,51 @@
+html {
+    height: 100%;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+/* tell the browser to render HTML 5 elements as block */
+article,aside,figure,footer,header,hgroup,nav,section {
+    display: block;
+}
+
+header {
+    height: 75px;
+    background-color: rgb(44, 160, 241);          
+}
+
+#headPart {
+	padding: 10px 0 5px 0;
+	font-size: 35px;
+	color: #353538;
+	margin: 0 80% 0 10%;
+}
+
+#GuestOwnerButtonContainer {
+	border : 1px black;
+	width: 50%;
+	margin: 5px auto;
+}
+
+.guestFormToCenter{
+	margin: 10px 25%;
+	padding: 5px 0 0 0;
+	width: 50%;	
+}
+
+#headPart h1{
+    color: white;    
+}
+
+.guestOwner {
+    float: left;
+    font-size: 1.2em;
+    padding-right : 10px;
+}
+
+.guestOwner a{
+    text-decoration : none;
+}

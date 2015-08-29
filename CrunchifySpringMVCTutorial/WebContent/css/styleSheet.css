@@ -1,0 +1,99 @@
+@font-face {
+    font-family: News Cycle;
+    src: url('../fonts/NewsCycle-Regular.eot');
+    src: local("News Cycle"), url('../fonts/NewsCycle-Regular.ttf');
+}
+
+html {
+    height: 100%;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font: normal 90% Arial, Helvetica, sans-serif;
+    color: #000;
+}
+
+/* tell the browser to render HTML 5 elements as block */
+article,aside,figure,footer,header,hgroup,nav,section {
+    display: block;
+}
+
+header {
+    height: 150px;    
+    background: -moz-linear-gradient(#535353, #000);
+    background: -o-linear-gradient(#535353, #000);
+    background: -webkit-linear-gradient(#535353, #000);
+}
+
+#strapline {
+    width: 100%;
+    height: 80px;
+    margin: 0px auto;
+}
+
+#welcome_slogan {
+    width: 100%;
+    float: left;
+    height: 70px;
+    padding-top: 10px;
+    margin: 0 auto;
+}
+
+#welcome_slogan H3 {
+    font: 300% 'News Cycle', Arial, sans-serif;
+    letter-spacing: -3px;
+    color: #FFF;
+    margin-left: 20px;
+    background-color: rgba(0,0,255,0.5);
+}
+
+h1,h2,h3,h4,h5,h6 {
+    font: normal 175% 'News Cycle', Arial, sans-serif;
+    color: #000;
+    letter-spacing: -1px;
+    margin: 0 0 10px 0;
+}
+
+h2 {
+    font: normal 165% 'News Cycle', Arial, sans-serif;
+}
+
+h3 {
+    font: normal 200% 'News Cycle', Arial, sans-serif;
+}
+
+h4,h5,h6 {
+    margin: 0;
+    padding: 0 0 0px 0;
+    font: normal 150% 'News Cycle', Arial, sans-serif;
+    color: #FFF;
+    line-height: 1.5em;
+}
+
+h5,h6 {
+    font: normal 95% 'News Cycle', Arial, sans-serif;
+    color: #888;
+    padding-bottom: 15px;
+}
+
+span {
+    color: #B1521A;
+    text-shadow: none;
+}
+
+nav {
+    height: 60px;
+}
+
+#menubar {
+    width: 940px;
+    height: 55px;
+    padding-top: 10px;
+    text-align: center;
+    margin: 0 auto;
+}

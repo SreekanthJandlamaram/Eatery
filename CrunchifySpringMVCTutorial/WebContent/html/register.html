@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+
+<style>
+
+p.error{
+    color: red;
+    font-size: 30px;
+}
+</style>
+
+<header style='color:blue'>
+    <h1>Create new Student record</h1>
+</header>
+<div>
+    <p>Name : {{rCtrl.newStudent.firstName}}</p>
+</div>
+
+<form name="userform">
+	<fieldset>
+	<legend>Guest</legend>
+	    
+	        <div>Make a reservation</div><br>
+	        
+	        <div>
+               <label>Date</label> 
+               <input type="date" name="date" required/>
+            </div>
+            <div>
+               <label>Time</label> 
+               <input type="time" name="time" required/>
+            </div>                                                          
+            <br>
+	        
+	        <div>
+	           <label>FirstName</label> 
+                <input type="text" name="firstName" required/>                	           
+	        </div><br>
+	        
+	        <div>
+               <label>LastName</label> 
+                <input type="text" name="lastName"/>                             
+            </div><br>
+		   
+		    <div>
+	            <label>Email</label> 
+	            <input type="email" name="Email" data-ng-model="rCtrl.newStudent.email">	            
+            </div><br>
+			
+			<div>
+				<label>LastName:</label> <input type="text" name="lastName">
+			</div><br>
+			
+			<div>
+				<label>City:</label> <input type="text" name="city" required>
+			</div>
+
+
+			<div class="submit">
+				<button type="submit">Submit</button>
+			</div>
+	</fieldset>
+</form>

@@ -27,6 +27,8 @@
 					templateUrl : 'html/profile.html',
 					controller : 'ProfileCtrl',
 					controllerAs : 'pCtrl'
+				}).otherwise({
+					redirectTo : 'webMain.html'
 				});
 		}	
 	})(); 

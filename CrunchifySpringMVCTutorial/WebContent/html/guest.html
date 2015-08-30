@@ -12,31 +12,32 @@
 	<div class="form-group">
 	    <label class="col-sm-2 control-label">Name</label>    
 		<div class="col-sm-10">
-			<input type="text" name="Name" class="form-control" data-ng-model="newGuest.Name" placeholder="Name" required>
-			<p data-ng-show="GuestForm.Name.$invalid && !GuestForm.Name.$pristine" class="help-block error">You name is required.</p>
+			<input type="text" name="Name" class="form-control" data-ng-model="newGuest.name" placeholder="First Name" required/>			
+			<span class="help block error" data-ng-show="!gCtrl.submitted && GuestForm.Name.$dirty && GuestForm.Name.$error.required">UserName is required</span>
 		</div>
     </div>
    		
     <div class="form-group">
 	    <label class="col-sm-2 control-label">Date</label>
 	    <div class="col-sm-10">    	
-      		<input type="date" name="Date" class="form-control" data-ng-model="newGuest.Date" required>
-      	     <p data-ng-show="GuestForm.Date.$invalid && !GuestForm.Date.$pristine" class="help-block error">Date is required.</p>
+      		<input type="date" name="Date" class="form-control" data-ng-model="newGuest.date" required>
+      		<span class="help block error" data-ng-show="!gCtrl.submitted && GuestForm.Date.$dirty && GuestForm.Date.$error.required">Date is required</span>
       	</div>
 	</div>
 	
 	<div class="form-group">
 		<label class="col-sm-2 control-label">Time</label>
 	    <div class="col-sm-10">    	
-      	     <input type="time" name="Time" class="form-control" data-ng-model="newGuest.Time" required>
-      	     <p data-ng-show="GuestForm.Time.$invalid && !GuestForm.Time.$pristine" class="help-block error">Time is required.</p>
+      	     <input type="time" name="Time" class="form-control" data-ng-model="newGuest.time" required>
+      	     <span class="help block error" data-ng-show="!gCtrl.submitted && GuestForm.Time.$dirty && GuestForm.Time.$error.required">Time is required</span>
       	</div>
 	</div>
 	
 	<div class="form-group">
 		<label class="col-sm-2 control-label">Phone</label>
 	    <div class="col-sm-10">    	
-      		<input type="text" name="Number" class="form-control" data-ng-model="newGuest.Number" data-ng-minlength="3" data-ng-maxlength="8">
+      		<input type="text" name="Number" class="form-control" data-ng-model="newGuest.number" data-ng-minlength="3" data-ng-maxlength="8" required>
+      		<span class="help block error" data-ng-show="!gCtrl.submitted && GuestForm.Number.$dirty && GuestForm.Number.$error.required">Number is required</span>
 			<p data-ng-show="GuestForm.Number.$error.minlength" class="help-block error">Number is too short.</p>
   			<p data-ng-show="GuestForm.Number.$error.maxlength" class="help-block error">Number is too long.</p>
    		</div>
@@ -45,16 +46,17 @@
 	<div class="form-group">
 		<label class="col-sm-2 control-label">Party Size</label>
 	    <div class="col-sm-10">    	
-			<input type="text" name="Size" class="form-control" data-ng-model="newGuest.Size">
+			<input type="text" name="Size" class="form-control" placeholder="Optional" data-ng-model="newGuest.size">
 		</div>
 	</div>
 	
 	<div class="form-group">
-    	<div class="col-sm-offset-2 col-sm-10">
-      		<button type="submit" class="btn btn-default" ng-disabled="GuestForm.$invalid" data-ng-click="gCtrl.sendForm(newGuest)">Reserve</button>
+    	<div class="col-sm-offset-2 col-sm-10">    		
+   			<button type="submit" class="btn btn-default" ng-disabled="GuestForm.$invalid" data-ng-click="gCtrl.sendForm(newGuest)">Reserve</button>
     	</div>
   	</div>
 </form>
+
 <!-- http://jonsamwell.com/dynamic-angularjs-validation/ -->
 <!-- <div data-ng-show="GuestForm.Name.$dirty">
 			<p class="error" data-ng-show="GuestForm.Name.$error.required">UserName is required</p>

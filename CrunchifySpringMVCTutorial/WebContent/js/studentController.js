@@ -14,6 +14,10 @@
 	function TitleController($rootScope, $route) {
 		
 	}*/
+	
+	angular.module('Student').run(function(){
+		console.log("Welcome to my Page");
+	});
 	angular.module('Student').controller('GuestCtrl', GuestController);
 	angular.module('Student').controller('OwnerCtrl', OwnerController);
 	angular.module('Student').controller('RegisterCtrl', RegisterController);
@@ -22,24 +26,23 @@
 	GuestController.$inject = ['$http'];
 	function GuestController($http) {
 		var gCtrl = this;
+		gCtrl.submitted = false;
 		gCtrl.sendForm = function(guestData) {
 			
-			var guestDataObj = {
-				name : guestData.Name,
-				date : guestData.Date,
-				time : guestData.Time,
-				number : guestData.Number,
-				size : guestData.Size
-			};
-
-			$http({ 
+			gCtrl.submitted = true;
+			$http({
 				method : 'POST', 
 				url : 'http://localhost:8090/CrunchifySpringMVCTutorial/reserve', 
-				data : guestDataObj, 
+				data : guestData, 
 				contentType: "application/json" }).
 				success(function(response) {
+					guestData.name = null;
+					guestData.time = null;
+					guestData.date = null;
+					guestData.number = null;
+					guestData.size = null;
 					console.log(response);
-				});			
+				});
 		};
 	}
 

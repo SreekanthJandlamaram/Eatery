@@ -28,7 +28,7 @@
 					controller : 'ProfileCtrl',
 					controllerAs : 'pCtrl'
 				}).otherwise({
-					redirectTo : 'webMain.html'
+					redirectTo : 'html/guest.html'
 				});
 		}	
 	})(); 

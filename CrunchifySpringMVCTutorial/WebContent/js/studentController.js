@@ -20,6 +20,7 @@
 	});
 	angular.module('Student').controller('GuestCtrl', GuestController);
 	angular.module('Student').controller('OwnerCtrl', OwnerController);
+	angular.module('Student').controller('imageSliderCtrl', imageSliderController);
 	angular.module('Student').controller('RegisterCtrl', RegisterController);
 	angular.module('Student').controller('ProfileCtrl', ProfileController);	
 	
@@ -65,6 +66,14 @@
 				console.log(response);
 			});
 		}
+	}
+	
+	imageSliderController.$inject = ['ngAnimate'];
+	function imageSliderController(ngAnimate) {
+		var imageSlider = this;
+		imageSlider.slides = [
+		                      
+		                      ];
 	}
 	
 	ProfileController.$inject = [ '$routeParams' ];

@@ -12,22 +12,53 @@ article,aside,figure,footer,header,hgroup,nav,section {
     display: block;
 }
 
-header {
+_header {
     height: 75px;
-    background-color: rgb(44, 160, 241);          
+    background-color: rgb(44, 160, 241);
+    margin: 10px 0px;          
+	background : radial-gradient(#2CA0F1, #0F7CC7); 
 }
 
-#headPart {
-	padding: 10px 0 5px 0;
-	font-size: 35px;
+#searchclear {
+    position: absolute;
+    right: px;
+    top: 0;
+    bottom: 0;
+    height: 14px;
+    margin: auto;
+    font-size: 14px;
+    cursor: pointer;
+    color: #ccc;
+}
+
+.customized-header {
+	margin: 5px 1px 10px;		
+	padding: 0; 	
+    background-color: rgb(44, 160, 241);
+    background : radial-gradient(#2CA0F1, #0F7CC7);
+	height: 75px;
+}
+
+.headPart {	
+	margin : 1% 5% 0;
+	font-size: xx-large;
 	color: #353538;
-	margin: 0 80% 0 10%;
+}
+
+.makeReservation {
+	font-size: 30px;
+	text-align: center;
 }
 
 #GuestOwnerButtonContainer {
 	border : 1px black;
 	width: 50%;
 	margin: 5px auto;
+}
+
+.customizedbtnhref{
+	font-size: 20px;
+	background-color: blue;
 }
 
 .guestFormToCenter{

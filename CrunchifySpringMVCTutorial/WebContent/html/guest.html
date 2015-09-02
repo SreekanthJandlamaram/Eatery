@@ -1,6 +1,5 @@
 <style>
 	.error{
-		
 		font-size: 0.9;
 		color: red;
 		padding: 0;		
@@ -8,11 +7,13 @@
 </style>
 
 <form class="form-horizontal guestFormToCenter" name="GuestForm" novalidate>
+	
+	<p class="makeReservation">Make a Reservation</p>
 
 	<div class="form-group">
 	    <label class="col-sm-2 control-label">Name</label>    
 		<div class="col-sm-10">
-			<input type="text" name="Name" class="form-control" data-ng-model="newGuest.name" placeholder="First Name" required/>			
+			<input type="text" name="Name" class="form-control" data-ng-model="newGuest.name" placeholder="First Name" required/>
 			<span class="help block error" data-ng-show="!gCtrl.submitted && GuestForm.Name.$dirty && GuestForm.Name.$error.required">UserName is required</span>
 		</div>
     </div>

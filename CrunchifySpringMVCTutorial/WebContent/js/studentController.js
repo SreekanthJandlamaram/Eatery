@@ -62,18 +62,45 @@
 				params: val 
 			}).
 			success(function(response) {
-				alert(1);
 				console.log(response);
 			});
 		}
 	}
 	
-	imageSliderController.$inject = ['ngAnimate'];
-	function imageSliderController(ngAnimate) {
+	function imageSliderController() {
 		var imageSlider = this;
 		imageSlider.slides = [
-		                      
-		                      ];
+		                      {image: 'images/img00.jpg', description: 'Image 00'},
+		                      {image: 'images/img01.jpg', description: 'Image 01'},
+		                      {image: 'images/img02.jpg', description: 'Image 02'},
+		                      {image: 'images/img03.jpg', description: 'Image 03'},
+		                      {image: 'images/img04.jpg', description: 'Image 04'}];
+		
+		imageSlider.currentIndex=0;
+		imageSlider.setCurrentSlideIndex = function(index) {
+			imageSlider.currentIndex=index;
+		}; 
+		
+		imageSlider.isCurrentSlideIndex = function(index) {
+			return (imageSlider.currentIndex === index);
+		};
+		
+		imageSlider.next = function() {
+			imageSlider.currentIndex < imageSlider.slides.length-1 ? imageSlider.currentIndex++ : imageSlider.currentIndex=0;
+		}
+
+		imageSlider.prev = function() {
+			imageSlider.currentIndex > 0  ? imageSlider.currentIndex-- : imageSlider.currentIndex=imageSlider.slides.length-1;
+		}
+		
+		/*var timer;
+		var sliderFunc = function() {
+				timer = $timeout(function(){
+				imageSlider.next();
+				timer = $timeout(sliderFunc, 5000);
+			},5000); 
+		};
+		sliderFunc();*/
 	}
 	
 	ProfileController.$inject = [ '$routeParams' ];

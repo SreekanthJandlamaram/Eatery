@@ -67,6 +67,11 @@ _header {
 	width: 50%;	
 }
 
+.imageSlide{
+	width: 400px;
+	height: 400px;
+}
+
 #headPart h1{
     color: white;    
 }
@@ -79,4 +84,21 @@ _header {
 
 .guestOwner a{
     text-decoration : none;
+}
+
+.slide.ng-hide-add,
+.slide.ng-hide-remove {
+  -webkit-transition: all linear 0.5s;
+  -moz-transition: all linear 0.5s;
+  -o-transition: all linear 0.5s;
+  transition: all linear 0.5s;
+  display: block!important;
+}
+.slide.ng-hide-add.ng-hide-add-active,
+.slide.ng-hide-remove {
+  opacity: 0;
+}
+.slide.ng-hide-add,
+.slide.ng-hide-remove.ng-hide-remove-active {
+  opacity: 1;
 }

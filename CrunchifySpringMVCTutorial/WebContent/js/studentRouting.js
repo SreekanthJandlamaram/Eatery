@@ -6,7 +6,7 @@
 		angular.module('Student').config(['$routeProvider', ModuleConfig]);		
 		
 		function ModuleConfig($routeProvider) {
-			$routeProvider				
+			$routeProvider
 				.when('/guest', {
 					templateUrl : 'html/guest.html',
 					title: 'Guest Registration',
@@ -28,7 +28,7 @@
 					controller : 'ProfileCtrl',
 					controllerAs : 'pCtrl'
 				}).otherwise({
-					redirectTo : 'html/guest.html'
+					redirectTo : '/'
 				});
 		}	
 	})(); 

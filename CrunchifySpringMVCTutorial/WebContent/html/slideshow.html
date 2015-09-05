@@ -1,0 +1,18 @@
+<!-- Slide show -->
+<div data-ng-controller="imageSliderCtrl as imageSlider" class="container slider">
+	<img data-ng-repeat="slide in imageSlider.slides" class="slide slide-animation nonDraggableImage" data-ng-swipe-right="imageSlider.next()" data-ng-swipe-left="imageSlider.prev()" data-ng-hide="!imageSlider.isCurrentSlideIndex($index)" data-ng-src="{{slide.image}}">
+
+	<a class="arrow prev" href="#" data-ng-click="imageSlider.next()"></a>
+   	<a class="arrow next" href="#" data-ng-click="imageSlider.prev()"></a>
+	<nav class="nav">
+		<div class="wrapper">
+			<ul class="dots">
+				<li class="dot" data-ng-repeat="slide in imageSlider.slides">
+					<a href="#" data-ng-class="{'active':imageSlider.isCurrentSlideIndex($index)}"
+						data-ng-click="imageSlider.setCurrentSlideIndex($index);">{{slide.description}}
+					</a>
+				</li>
+			</ul>
+		</div>
+	</nav>			
+</div>

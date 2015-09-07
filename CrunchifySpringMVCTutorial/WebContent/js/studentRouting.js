@@ -9,7 +9,6 @@
 			$routeProvider
 				.when('/guest', {
 					templateUrl : 'html/guest.html',
-					title: 'Guest Registration',
 					controller : 'GuestCtrl',
 					controllerAs : 'gCtrl'					
 				})

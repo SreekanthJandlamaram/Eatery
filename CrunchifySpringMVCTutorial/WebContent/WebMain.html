@@ -14,10 +14,17 @@
 </head>
 
 <body>
-
-	<div class="page-header customized-header">
-		<a href="#/WebMain.html"><span class="glyphicon glyphicon-cutlery headPart">Eatery</span></a> 
-	</div>
+	
+	<div class="customized-header">
+		<a href="#/WebMain.html"><span class="glyphicon glyphicon-cutlery headPart">Eatery</span></a>
+		<div class="parent_navbar">		
+			<ul class="navbar-right">
+					<li class="dropdown"><a href="#/">HOME</a></li>
+					<li class="seperator">|</li>
+					<li class="dropdown">Hello</li>
+			</ul>
+		</div>
+	</div>	
 	
 	<div id="GuestOwnerButtonContainer">
 		<div class="btn-group btn-group-justified" role="group" aria-label="Guest Owner">	
@@ -25,11 +32,28 @@
  			<a href="#/owner" class="btn btn-default customizedbtnhref" role="button">Owner</a>
 		</div>
 	</div>
+	<div data-ng-view></div>
 	
-	<div>
-	<script type="text/ng-template" data-ng-include="html/slideshow.html">Loaded images</script></div>
+	<section>
+	<!--<script type="text/ng-template" data-ng-include="html/slideshow.html">Loaded images</script></div> -->
+	<div data-ng-controller="imageSliderCtrl as imageSlider" class="container slider">
+		<img data-ng-repeat="slide in imageSlider.slides" class="slide slide-animation nonDraggableImage" data-ng-swipe-right="imageSlider.next()" data-ng-swipe-left="imageSlider.prev()" data-ng-hide="!imageSlider.isCurrentSlideIndex($index)" data-ng-src="{{slide.image}}">
+		<a class="arrow prev" href="" data-ng-click="imageSlider.next()"></a>
+   		<a class="arrow next" href="" data-ng-click="imageSlider.prev()"></a>
+		<nav class="nav">
+			<div class="wrapper">
+				<ul class="dots">
+					<li class="dot" data-ng-repeat="slide in imageSlider.slides">
+						<a href="" data-ng-class="{'active':imageSlider.isCurrentSlideIndex($index)}"
+							data-ng-click="imageSlider.setCurrentSlideIndex($index);">{{slide.description}}
+						</a>
+					</li>
+				</ul>
+			</div>
+		</nav>			
+	</div>
+	</section>
 	
-	<section data-ng-view></section>
 	<script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 	<script data-require="angular.js@1.4.x" src="https://code.angularjs.org/1.4.3/angular.js" data-semver="1.4.3"></script>

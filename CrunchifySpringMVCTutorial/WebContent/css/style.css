@@ -12,13 +12,6 @@ article,aside,figure,footer,header,hgroup,nav,section {
     display: block;
 }
 
-_header {
-    height: 75px;
-    background-color: rgb(44, 160, 241);
-    margin: 10px 0px;          
-	background : radial-gradient(#2CA0F1, #0F7CC7); 
-}
-
 #searchclear {
     position: absolute;
     right: px;
@@ -32,17 +25,35 @@ _header {
 }
 
 .customized-header {
-	margin: 5px 1px 10px;		
 	padding: 0; 	
     background-color: rgb(44, 160, 241);
     background : radial-gradient(#2CA0F1, #0F7CC7);
 	height: 75px;
 }
 
-.headPart {	
-	margin : 1% 5% 0;
+.headPart {
+	margin : 1% 7% 0;
 	font-size: xx-large;
 	color: #353538;
+}
+
+.parent_navbar {
+	text-align: center;
+}
+
+.navbar-right {	
+	list-style: none;
+	display: inline-block;
+}
+
+.dropdown {
+	float: left;
+	font-size: 20px;
+	padding: 5px;
+}
+
+.seperator{
+	float: left;
 }
 
 .makeReservation {

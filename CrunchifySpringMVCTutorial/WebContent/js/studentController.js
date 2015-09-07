@@ -27,6 +27,7 @@
 	GuestController.$inject = ['$http'];
 	function GuestController($http) {
 		var gCtrl = this;
+		gCtrl.title = 'Guest Registration';
 		gCtrl.submitted = false;
 		gCtrl.sendForm = function(guestData) {
 			

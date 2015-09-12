@@ -26,5 +26,14 @@ public class ReservationSystem {
     @RequestMapping(value = "/reserve", method = RequestMethod.POST)
     public @ResponseBody Reservation confirmReservation(@RequestBody Reservation user) {
     	return user;
-    }   
+    }
+    
+    @RequestMapping(value="/editReservation/{tktId}", method=RequestMethod.GET)
+    public @ResponseBody Reservation editReservation(@PathVariable("tktId") int tktId) {
+    	
+    	Reservation editReservation = new Reservation();
+    	System.out.println(tktId);
+    	editReservation.setName("Sreekanth");
+    	return editReservation;
+    }
 }

@@ -19,9 +19,11 @@
 		<a href="#/WebMain.html"><span class="glyphicon glyphicon-cutlery headPart">Eatery</span></a>
 		<div class="parent_navbar">		
 			<ul class="navbar-right">
-					<li class="dropdown"><a href="#/">HOME</a></li>
+					<li class="dropdown"><a href="#/editReservation"  class="dropdown_href">Edit Reservation?</a></li>
 					<li class="seperator">|</li>
-					<li class="dropdown">Hello</li>
+					<li class="dropdown">Link1</li>
+					<li class="seperator">|</li>
+					<li class="dropdown"><i class="glyphicon glyphicon-phone">9581457487</i></li>
 			</ul>
 		</div>
 	</div>	
@@ -34,25 +36,7 @@
 	</div>
 	<div data-ng-view></div>
 	
-	<section>
-	<!--<script type="text/ng-template" data-ng-include="html/slideshow.html">Loaded images</script></div> -->
-	<div data-ng-controller="imageSliderCtrl as imageSlider" class="container slider">
-		<img data-ng-repeat="slide in imageSlider.slides" class="slide slide-animation nonDraggableImage" data-ng-swipe-right="imageSlider.next()" data-ng-swipe-left="imageSlider.prev()" data-ng-hide="!imageSlider.isCurrentSlideIndex($index)" data-ng-src="{{slide.image}}">
-		<a class="arrow prev" href="" data-ng-click="imageSlider.next()"></a>
-   		<a class="arrow next" href="" data-ng-click="imageSlider.prev()"></a>
-		<nav class="nav">
-			<div class="wrapper">
-				<ul class="dots">
-					<li class="dot" data-ng-repeat="slide in imageSlider.slides">
-						<a href="" data-ng-class="{'active':imageSlider.isCurrentSlideIndex($index)}"
-							data-ng-click="imageSlider.setCurrentSlideIndex($index);">{{slide.description}}
-						</a>
-					</li>
-				</ul>
-			</div>
-		</nav>			
-	</div>
-	</section>
+	<!-- <section><div data-ng-include="'html/slideshow.html'"></div></section> -->
 	
 	<script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>

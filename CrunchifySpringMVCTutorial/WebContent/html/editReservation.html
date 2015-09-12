@@ -1,0 +1,68 @@
+<style>
+	.error{
+		font-size: 0.9;
+		color: red;
+		padding: 0;		
+	}
+	
+	.enterTicket{
+		width: 500px;
+		margin: 20px auto;
+		padding: 10px;
+	}
+</style>
+
+<form name="TicketEntryForm" class="form-inline enterTicket" data-ng-show="erCtrl.showForm" novalidate>
+  <div class="form-group">
+    <label name="TicketNumber" style="font-size:20px; color:#7F7F7E; margin: 2px">Ticket number :</label>
+    <input type="text" class="form-control" name="ticketnumber" data-ng-model="ticketnumber" required/>
+    <span class="help block error" data-ng-show="!erCtrl.isSubmitted && TicketEntryForm.ticketnumber.$dirty && TicketEntryForm.ticketnumber.$error.required">TicketNumber is required</span>
+	<button type="submit" class="btn btn-default" data-ng-click=erCtrl.submitTicketNumber(ticketnumber)>Submit</button>
+  </div>
+</form>
+
+
+<div data-ng-hide="erCtrl.showForm">
+	<form class="form-horizontal guestFormToCenter" name="GuestForm" novalidate>
+		<p class="makeReservation">Edit Reservation</p>
+	
+		<div class="form-group">
+		    <label class="col-sm-2 control-label">Name</label>    
+			<div class="col-sm-10">
+				<input type="text" name="Name" class="form-control" data-ng-model="erCtrl.editGuest.name" placeholder="First Name" required/>
+				<span class="help block error" data-ng-show="!erGuestCtrl.submitted && GuestForm.Name.$dirty && GuestForm.Name.$error.required">UserName is required</span>
+			</div>
+	    </div>
+	   		
+	    <div class="form-group">
+		    <label class="col-sm-2 control-label">Date</label>
+		    <div class="col-sm-10">    	
+	      		<input type="datetime-local" name="Date" class="form-control" data-ng-model="erCtrl.editGuest.date" required min="2015-09-12T00:00:00" max="2015-09-17T00:00:00">
+	      		<span class="help block error" data-ng-show="!erGuestCtrl.submitted && GuestForm.Date.$dirty && GuestForm.Date.$error.required">Date is required</span>
+	      	</div>
+		</div>
+		
+		<div class="form-group">
+			<label class="col-sm-2 control-label">Phone</label>
+		    <div class="col-sm-10">    	
+	      		<input type="text" name="Number" class="form-control" data-ng-model="newGuest.number" data-ng-minlength="3" data-ng-maxlength="8" required>
+	      		<span class="help block error" data-ng-show="!gCtrl.submitted && GuestForm.Number.$dirty && GuestForm.Number.$error.required">Number is required</span>
+				<p data-ng-show="GuestForm.Number.$error.minlength" class="help-block error">Number is too short.</p>
+	  			<p data-ng-show="GuestForm.Number.$error.maxlength" class="help-block error">Number is too long.</p>
+	   		</div>
+		</div>
+		
+		<div class="form-group">
+			<label class="col-sm-2 control-label">Party Size</label>
+		    <div class="col-sm-10">    	
+				<input type="text" name="Size" class="form-control" placeholder="Optional" data-ng-model="erCtrl.editGuest.size">
+			</div>
+		</div>
+		
+		<div class="form-group">
+	    	<div class="col-sm-offset-2 col-sm-10">    		
+	   			<button type="submit" class="btn btn-default" data-ng-disabled="GuestForm.$invalid" confirmed-click="erCtrl.sendEditForm()" data-ng-confirm-click="Would you like to Proceed?">Reserve</button>
+	    	</div>
+	  	</div>
+	</form>
+</div>

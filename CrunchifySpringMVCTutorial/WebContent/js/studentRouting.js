@@ -17,17 +17,17 @@
 					controller : 'OwnerCtrl',
 					controllerAs : 'oCtrl'
 				})
-				.when('/register', {
-					templateUrl : 'html/register.html',
-					controller : 'RegisterCtrl',
-					controllerAs : 'rCtrl'
+				.when('/editReservation', {
+					templateUrl : 'html/editReservation.html',
+					controller : 'EditReservationCtrl',
+					controllerAs : 'erCtrl'
 				})
 				.when('/profile', {
 					templateUrl : 'html/profile.html',
 					controller : 'ProfileCtrl',
 					controllerAs : 'pCtrl'
 				}).otherwise({
-					redirectTo : '/'
+					redirectTo : '/guest'
 				});
 		}	
 	})(); 

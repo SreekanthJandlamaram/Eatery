@@ -1,9 +1,6 @@
 package com.crunchify.controller;
 
-import java.util.Date;
-import java.util.TimeZone;
 import java.util.logging.Logger;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -11,7 +8,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class ReservationSystem {
@@ -21,7 +17,6 @@ public class ReservationSystem {
 	//POST calls
 	@RequestMapping(value = "/reserve", method = RequestMethod.POST)
     public @ResponseBody Reservation confirmReservation(@RequestBody Reservation user) {
-		//long localtime = TimeZone.convertUTCToLocal(long(user.getDate()));
     	System.out.println("User date : "+ user.getDate());
     	return user;
     }
@@ -40,6 +35,7 @@ public class ReservationSystem {
     	Reservation editReservation = new Reservation();
     	System.out.println(tktId);
     	editReservation.setName("Sreekanth");
+    	editReservation.setDate("2015-09-12T18:00:00.000Z");
     	return editReservation;
     }
 }

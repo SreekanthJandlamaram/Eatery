@@ -40,8 +40,9 @@
 		};
 	}]);
 	
-	GuestController.$inject = ['$http', '$window'];
-	function guestFormFactory($http, $window) {
+	//factory. common code is written.
+	GuestController.$inject = ['$http', '$window', '$timeout'];
+	function guestFormFactory($http, $window, $timeout) {
 		var gCtrl = {};
 		gCtrl.title = 'Guest Registration';
 		gCtrl.submitted = false;
@@ -56,28 +57,33 @@
 				contentType: "application/json" }).
 				success(function(response) {
 					guestData.name = null;
-					guestData.time = null;
 					guestData.date = null;
 					guestData.number = null;
 					guestData.size = null;
-					alert('Reservation succesfull \n Redirecting to Guest Reservation');
-					
-					$timeout(function(){
-						$window.location.href = "#/guest";
-					},3000);
-					
+					alert('Reservation succesfull \nRedirecting to Guest Reservation Page');
 					console.log(response);
+					$window.location.href = "#/guest";
 				});
 			
 		};
 		return gCtrl;
 	}
 	
-	GuestController.$inject = ['$http', '$window'];
-	function GuestController($http, $window) {
+	//gets the guest details from the users and makes a post call to the backend
+	GuestController.$inject = ['$http', '$window', '$timeout'];
+	function GuestController($http, $window, $timeout) {
 		var gCtrl = this;
 		gCtrl.title = 'Guest Registration';
 		gCtrl.submitted = false;
+		
+		function pad(number, length){
+		    var str = "" + number;
+		    while (str.length < length) {
+		        str = '0'+str;
+		    }
+		    return str;
+		}
+		
 		gCtrl.sendForm = function(guestData) {
 			
 			gCtrl.submitted = true;
@@ -88,17 +94,20 @@
 						contentType : "application/json"
 				}).success(function(response) {
 				guestData.name = null;
-				guestData.date = response.date;
+				guestData.date = null;
 				guestData.number = null;
 				guestData.size = null;
-				alert('Reservation succesfull');
+				$timeout(function(){
+					alert('Reservation succesfull');
+				},2000);
 				console.log(response);
 			});
 		};
 	}
 	
-	EditReservationController.$inject = ['$http', 'guestFormFactry'];
-	function EditReservationController($http, guestFormFactry) {
+	//Edits the user reservation and saves the details in the server
+	EditReservationController.$inject = ['$http', 'guestFormFactry', '$timeout'];
+	function EditReservationController($http, guestFormFactry, $timeout) {
 		var erCtrl = this;
 		var erGuestCtrl = guestFormFactry;
 		erCtrl.showForm = true;
@@ -111,17 +120,25 @@
 			url : 'http://localhost:8090/CrunchifySpringMVCTutorial/editReservation/' + tktNumber
 		}).
 		success(function(response) {
+				
 				erCtrl.showForm = false;
 				erCtrl.editGuest = {};
 				erCtrl.editGuest.name = response.name;
 				
-				/*erCtrl.sendEditForm = function() {
+				//converts UTC date to user localtime.
+				var localDate = new Date(response.date);
+				erCtrl.editGuest.date = localDate;
+				erCtrl.editGuest.number = 12345;
+				
+				erCtrl.sendEditForm = function() {
 					erGuestCtrl.sendForm(erCtrl.editGuest);
-				};*/
+				};
 			}).
 		error(function(response){
 				alert("Invalid Ticket Number");
-				alert("Enter valid Ticket Number");
+				$timeout(function(){
+					alert("Enter valid Ticket Number");
+				},1000);
 				erCtrl.ticketnumber = null;
 			});
 		}

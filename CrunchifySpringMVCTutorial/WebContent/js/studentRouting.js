@@ -22,11 +22,7 @@
 					controller : 'EditReservationCtrl',
 					controllerAs : 'erCtrl'
 				})
-				.when('/profile', {
-					templateUrl : 'html/profile.html',
-					controller : 'ProfileCtrl',
-					controllerAs : 'pCtrl'
-				}).otherwise({
+				.otherwise({
 					redirectTo : '/guest'
 				});
 		}	

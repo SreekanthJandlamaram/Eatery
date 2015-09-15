@@ -7,7 +7,6 @@ public class Reservation implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private String name;
 	private String date;
-	private String time;
 	private int number;
 	private int size;
 	
@@ -26,12 +25,6 @@ public class Reservation implements Serializable {
 	}
 	public void setDate(String _date) {
 		date = _date;
-	}
-	public String getTime() {
-		return time;
-	}
-	public void setTime(String _time) {
-		time = _time;
 	}
 	public int getNumber() {
 		return number;

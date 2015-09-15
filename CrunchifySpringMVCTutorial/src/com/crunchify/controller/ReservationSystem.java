@@ -1,5 +1,7 @@
 package com.crunchify.controller;
 
+import java.util.Date;
+import java.util.TimeZone;
 import java.util.logging.Logger;
 
 import org.springframework.stereotype.Controller;
@@ -16,16 +18,20 @@ public class ReservationSystem {
 
 	static Logger log = Logger.getLogger(ReservationSystem.class.getName());
 	
+	//POST calls
+	@RequestMapping(value = "/reserve", method = RequestMethod.POST)
+    public @ResponseBody Reservation confirmReservation(@RequestBody Reservation user) {
+		//long localtime = TimeZone.convertUTCToLocal(long(user.getDate()));
+    	System.out.println("User date : "+ user.getDate());
+    	return user;
+    }
+    
+	//Get Calls
 	@RequestMapping(value = "/reser", method = RequestMethod.GET)
     public @ResponseBody Reservation confirm(@RequestParam("idd") int idd) {    	
     	Reservation reserv = new Reservation();
     	reserv.setSize(idd);
 		return reserv;
-    }
-    
-    @RequestMapping(value = "/reserve", method = RequestMethod.POST)
-    public @ResponseBody Reservation confirmReservation(@RequestBody Reservation user) {
-    	return user;
     }
     
     @RequestMapping(value="/editReservation/{tktId}", method=RequestMethod.GET)

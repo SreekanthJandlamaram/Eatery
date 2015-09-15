@@ -49,6 +49,7 @@
 			
 			gCtrl.submitted = true;
 			$http({
+				
 				method : 'POST', 
 				url : 'http://localhost:8090/CrunchifySpringMVCTutorial/reserve', 
 				data : guestData, 
@@ -59,8 +60,12 @@
 					guestData.date = null;
 					guestData.number = null;
 					guestData.size = null;
-					alert('Reservation succesfull');
-					//$window.location.href = "#/owner";
+					alert('Reservation succesfull \n Redirecting to Guest Reservation');
+					
+					$timeout(function(){
+						$window.location.href = "#/guest";
+					},3000);
+					
 					console.log(response);
 				});
 			
@@ -77,21 +82,18 @@
 			
 			gCtrl.submitted = true;
 			$http({
-				method : 'POST', 
-				url : 'http://localhost:8090/CrunchifySpringMVCTutorial/reserve', 
-				data : guestData, 
-				contentType: "application/json" }).
-				success(function(response) {
-					guestData.name = null;
-					guestData.time = null;
-					guestData.date = null;
-					guestData.number = null;
-					guestData.size = null;
-					alert('Reservation succesfull');
-					//$window.location.href = "#/owner";
-					console.log(response);
-				});
-			
+						method : 'POST',
+						url : 'http://localhost:8090/CrunchifySpringMVCTutorial/reserve',
+						data : guestData,
+						contentType : "application/json"
+				}).success(function(response) {
+				guestData.name = null;
+				guestData.date = response.date;
+				guestData.number = null;
+				guestData.size = null;
+				alert('Reservation succesfull');
+				console.log(response);
+			});
 		};
 	}
 	
